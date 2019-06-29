@@ -89,7 +89,7 @@ do
 			#echo 'power' | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
 			echo 'balance_power' | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference
 			sudo pstate-frequency -S -m 100 -n 0
-			if [[ $(cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference) = "balance_performance" ]]; then
+			if [[ $(cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference) = "balance_power" ]]; then
 				rm $statePerformance
 				rm $stateBattery
 				touch $stateBalance
