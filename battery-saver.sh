@@ -3,11 +3,11 @@
 state="/home/ccxex29/.scripts/config/state.tmp"
 
 # Suspend app processes
-process_firefox=$(pgrep firefox)
-process_tumbler=$(pgrep tumbler)
+process_firefox=$(pgrep firefox) 
+process_tumbler=$(pgrep tumbler) 
 
 # Suspend Bluetooth
-process_bluetoothd=$(pgrep bluetoothd)
+process_bluetoothd=$(pgrep bluetoothd) 
 process_bluemanapplet=$(pgrep blueman-applet)
 process_obexd=$(pgrep obexd)
 
@@ -29,7 +29,7 @@ if [[ ! -e "${state}" ]]; then
 	kill -STOP $process_obexd
 	
 	#Disable compositor
-	xfwm4 --replace --compositor=off
+	xfwm4 --replace --compositor=off &
 else
 	rm $state
 
@@ -43,5 +43,5 @@ else
 	kill -CONT $process_obexd
 	
 	#Enable compositor
-	xfwm4 --replace --compositor=on
+	xfwm4 --replace --compositor=on &
 fi
