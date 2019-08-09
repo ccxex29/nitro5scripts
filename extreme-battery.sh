@@ -75,7 +75,8 @@ do
 	fi
 	
 	### MENU PERFORMANCE PROFILE SELECT ###
-	printf "\n\nEnter only one of these numbers: ${GREENCOLOR}0${NOCOLOR}, ${GREENCOLOR}1${NOCOLOR}, and ${GREENCOLOR}2\n"
+	printf "\n\nEnter only one of these numbers: ${GREENCOLOR}0${NOCOLOR}, ${GREENCOLOR}1${NOCOLOR}, ${GREENCOLOR}2${NOCOLOR}, ${GREENCOLOR}3${NOCOLOR}, or ${ORANGECOLOR}420${NOCOLOR}\n"
+	printf "${GREENCOLOR}"
 	printf "1 means Switching to Extreme Battery Mode\n"
 	printf "2 means Switching to Battery ECO Mode\n"
 	printf "3 means Switching to Extreme Performance Mode\n"
