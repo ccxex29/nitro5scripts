@@ -1,6 +1,7 @@
 #!/bin/bash
 VALUE=$(grep namafile config/config.cfg | cut -d '=' -f 2)
 namaexec=$(echo "$VALUE" | cut -f 1 -d '.')
+extension=`echo "$VALUE" | cut -d '.' -f 2`
 
 cd /home/ccxex29/Programming/C/executable-binaries/ || exit
 #START=$(date +%s)
@@ -9,7 +10,11 @@ res1=$(date +%s.%N)
 # do stuff in here
 
 #xfce4-terminal -x bash -c "START=$(date +%s);/home/ccxex29/Programming/C/executable-binaries/'$namaexec';END=$'(date +%s)';DIFF=$'(($END-$START))';printf '\n====================\nExecution Time $DIFF\n====================\n' ;read -p 'Enter to continue'"
-/home/ccxex29/Programming/C/executable-binaries/$namaexec
+if [[ $extension = 'c' ]]; then
+	$HOME/Programming/C/executable-binaries/$namaexec
+elif [[ $extension = 'cpp' ]] || [[ $extension = 'cxx' ]] || [[ $extension = 'cc' ]] || [[ $extension = 'C' ]] || [[ $extension = 'c++' ]]; then
+	$HOME/Programming/C++/executable-binaries/$namaexec
+fi
 #END=$(date +%s)
 #DIFF=$(($END-$START))
 

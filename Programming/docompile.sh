@@ -6,21 +6,24 @@ VALUE=`grep namafile config/config.cfg | cut -d '=' -f 2`
 namaexec=`echo "$VALUE" | cut -f 1 -d '.'`
 #echo $namaexec
 extension=`echo "$VALUE" | cut -d '.' -f 2`
+argumentsC=-Wall
+argumentsCexl=-lm -lncurses -lpthread
+argumentsCPPexl=
 
 #echo $extension
 if [[ $extension = 'c' ]]; then
 	printf 'Compiling a C Source Code\n'
-	gcc /home/ccxex29/Programming/C/source-codes/"$VALUE" -o /home/ccxex29/Programming/C/executable-binaries/"$namaexec" -Wall -lm -lncurses -lpthread
+	gcc $HOME/Programming/C/source-codes/"$VALUE" -o $HOME/Programming/C/executable-binaries/"$namaexec" $argumentsC $argumentsCexl
 	printf '\n====================\n'
 	read -p "Enter to continue"
 elif [[ $extension = 'cpp' ]] || [[ $extension = 'cxx' ]] || [[ $extension = 'cc' ]] || [[ $extension = 'C' ]] || [[ $extension = 'c++' ]]; then
 	printf 'Compiling a C++ Source Code\n'
-	g++ /home/ccxex29/Programming/C/source-codes/"$VALUE" -o /home/ccxex29/Programming/C/executable-binaries/"$namaexec" -Wall -lm -lncurses -lpthread
+	g++ $HOME/Programming/C++/source-codes/"$VALUE" -o $HOME/Programming/C++/executable-binaries/"$namaexec" $argumentsC $argumentsCPPexl
 	printf '\n====================\n'
 	read -p "Enter to continue"
 elif [[ $extension = 'kt' ]]; then
 	printf 'Compiling a Kotlin Source Code\n'
-	kotlinc /home/ccxex29/Programming/C/source-codes/"$VALUE" -include-runtime -d /home/ccxex29/Programming/C/executable-binaries/"$namaexec".jar -verbose
+	kotlinc $HOME/Programming/C/source-codes/"$VALUE" -include-runtime -d $HOME/Programming/C/executable-binaries/"$namaexec".jar -verbose
 	printf '\n====================\n'
 	read -p "Enter to continue"
 else
