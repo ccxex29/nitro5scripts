@@ -10,12 +10,15 @@ WHITECOLOR='\033[1;37m'
 NOCOLOR='\033[0m'
 
 scriptDir="/home/ccxex29/.scripts/"
+NBFCfix="fix-nbfc.sh"
 
 stateBattery="config/extremebatterystate"
 stateBatteryCasual="config/batterystate"
 statePerformance="config/extremeperformancestate"
 stateBalance="config/balancestate"
 stateGaming="config/gamingstate"
+
+stateFan="config/fanenabled"
 
 Performance=$(cpupower frequency-info | grep "hardware limits")
 Performance=$(echo $Performance | cut -d ':' -f 2)
@@ -52,6 +55,11 @@ fi
 if [[ $maxHertz = "GHz" ]]; then
 	maxPerformance=$(bc -l <<< "$maxPerformance*1000")
 	maxHertz="MHz"
+fi
+
+# Fix NBFC when needed
+if [[ -e "$NBFCfix" ]]; then
+	./$NBFCfix -quiet
 fi
 
 userPrompt='-1'
