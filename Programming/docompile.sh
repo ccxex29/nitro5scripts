@@ -6,9 +6,9 @@ VALUE=`grep namafile config/config.cfg | cut -d '=' -f 2`
 namaexec=`echo "$VALUE" | cut -f 1 -d '.'`
 #echo $namaexec
 extension=`echo "$VALUE" | cut -d '.' -f 2`
-argumentsC=-Wall
-argumentsCexl=-lm -lncurses -lpthread
-argumentsCPPexl=
+argumentsC="-Wall"
+argumentsCexl="-lm -lncurses -lpthread"
+argumentsCPPexl=""
 
 #echo $extension
 if [[ $extension = 'c' ]]; then
