@@ -40,7 +40,7 @@ if [[ $DELTA_BACKLIGHT = 0 ]]; then
 	ID=$(/home/ccxex29/Documents/GitSources/notify-send.sh/notify-send.sh -t 10000 -p "Screen Brightness Unchanged\!" "Value is $CHANGED_BACKLIGHT")
 else
 	#echo changed "$DELTA_BACKLIGHT"
-	ID=$(/home/ccxex29/Documents/GitSources/notify-send.sh/notify-send.sh -t 10000 -p "Screen Brightness Changed\!" "Value changed $WRITTEN_BACKLIGHT to $CHANGED_BACKLIGHT")
+	ID=$(/home/ccxex29/Documents/GitSources/notify-send.sh/notify-send.sh -t 10000 -p "Screen Brightness Changed\!" "Value changed by $WRITTEN_BACKLIGHT to $CHANGED_BACKLIGHT")
 fi
 
 

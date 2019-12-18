@@ -7,7 +7,10 @@ if [[ -e $toRemove ]]; then
 	if [[ $(sudo whoami) = 'root' ]]; then
 		sudo rm /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll
 		sudo systemctl restart nbfc
-		nbfc start -e
+		if [[ $(nbfc start -e) = 'Connection Refused' ]]; then # May get connection refused. Workaround is to restart the nbfc as non-daemon
+			sudo systemctl start nbfc
+			nbfc start
+		fi
 	else
 		echo -e "You are not root! Program terminating.."
 	fi
