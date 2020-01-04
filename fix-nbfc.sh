@@ -8,7 +8,7 @@ if [[ -e $toRemove ]]; then
 		sudo rm /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll
 		sudo systemctl restart nbfc
 		if [[ $(nbfc start -e) = 'Connection Refused' ]]; then # May get connection refused. Workaround is to restart the nbfc as non-daemon
-			sudo systemctl start nbfc
+			sudo systemctl restart nbfc
 			nbfc start
 		fi
 	else
