@@ -29,7 +29,7 @@ if [[ ! -e "${state}" ]]; then
 	kill -STOP $process_obexd
 	
 	#Disable compositor
-	xfwm4 --replace --compositor=off &
+	xfconf-query -c xfwm4 -p /general/use_compositing -s false
 else
 	rm $state
 
@@ -43,5 +43,5 @@ else
 	kill -CONT $process_obexd
 	
 	#Enable compositor
-	xfwm4 --replace --compositor=on &
+	xfconf-query -c xfwm4 -p /general/use_compositing -s true
 fi
