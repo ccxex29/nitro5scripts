@@ -8,6 +8,9 @@ mergedSourceName="ConferenceVirtualSource"
 
 declare -a moduleNumbers=()
 
+# Handle quit signals
+trap "" INT
+
 # Add Virtual Sinks 
 moduleNumbers+=($(pactl load-module module-null-sink sink_name="$appSinkName" sink_properties=device.description="$appSinkName"))
 moduleNumbers+=($(pactl load-module module-null-sink sink_name="$bridgeSinkName" sink_properties=device.description="$bridgeSinkName"))
