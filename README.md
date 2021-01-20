@@ -1,3 +1,5 @@
+# MOVED TO [dotfile-repo](https://github.com/ccxex29/dotfile-repo)
+
 # Nitro 5 Scripts
 My Personal Scripts and possibly Configurations for Acer Nitro 5 Running on Manjaro Linux and Arch Linux (mainly XFCE Desktop Environment). Additional dotfiles are available in a [separate dotfiles repo](https://github.com/ccxex29/dotfile-repo)
 
